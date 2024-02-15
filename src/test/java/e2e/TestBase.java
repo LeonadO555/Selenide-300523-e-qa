@@ -15,7 +15,7 @@ public class TestBase {
     @BeforeMethod
     public void init() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-        Configuration.reportsFolder = "test-results/reports";
+        Configuration.reportsFolder = "test-result/reports";
         ScreenShooter.captureSuccessfulTests = true;
         Configuration.browserCapabilities = new ChromeOptions().addArguments("--remote-allow-origins=*");
         open("https://www.saucedemo.com/");
