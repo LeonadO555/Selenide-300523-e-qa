@@ -18,13 +18,13 @@ allure {
     autoconfigure = true
     version = "${allureVersion}"
 
-    useTestNG{
+    useTestNG {
         version = "${allureVersion}"
     }
 }
 
 dependencies {
-    testImplementation('com.codeborne:selenide-testng:6.11.0')
+    implementation group: 'com.codeborne', name: 'selenide-testng', version: '7.1.0'
     testImplementation("io.qameta.allure:allure-selenide:${allureVersion}")
     testImplementation('org.testng:testng:7.7.1')
     testImplementation('org.slf4j:slf4j-simple:2.0.6')
@@ -38,5 +38,5 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
+    useTestNG()
 }
