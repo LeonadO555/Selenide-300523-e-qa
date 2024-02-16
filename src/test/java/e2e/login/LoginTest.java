@@ -18,7 +18,7 @@ public class LoginTest extends TestBase {
     @Epic("Login")
     @Feature("Positive login")
     @Description("Login as standard_user with valid password")
-
+    @AllureId("2")
     @Severity(SeverityLevel.BLOCKER)
     @Test(description = "Login as standard_user with valid password")
     public void loginAsStandardUser() {
@@ -28,7 +28,7 @@ public class LoginTest extends TestBase {
     @Epic("Login")
     @Feature("Positive login")
     @Description("Login as problem_user with valid password")
-
+    @AllureId("1")
     @Severity(SeverityLevel.BLOCKER)
     @Test(description = "Login as problem_user with valid password")
     public void loginAsProblemUser() {
@@ -38,7 +38,7 @@ public class LoginTest extends TestBase {
     @Epic("Login")
     @Feature("Positive login")
     @Description("Login as performance_glitch_user with valid password")
-
+    @AllureId("4")
     @Severity(SeverityLevel.BLOCKER)
     @Test(description = "Login as performance_glitch_user with valid password")
     public void loginPerformanceGlitchUser() {
@@ -48,7 +48,7 @@ public class LoginTest extends TestBase {
     @Epic("Login")
     @Feature("Positive login")
     @Description("Login as error_user with valid password")
-
+    @AllureId("3")
     @Severity(SeverityLevel.BLOCKER)
     @Test(description = "Login as error_user with valid password")
     public void loginErrorUser() {
@@ -58,7 +58,7 @@ public class LoginTest extends TestBase {
     @Epic("Login")
     @Feature("Positive login")
     @Description("Login as visual_user with valid password")
-
+    @AllureId("5")
     @Severity(SeverityLevel.BLOCKER)
     @Test(description = "Login as visual_user with valid password")
     public void loginVisualUser() {
