@@ -64,4 +64,23 @@ public class LoginTest extends TestBase {
     public void loginVisualUser() {
         positiveTestMethod("visual_user");
     }
+
+    public void negativeTestMethod(String username) {
+
+        loginPage = new LoginPage();
+        String editPassword = "secretsauce";
+        loginPage.login(username, editPassword);
+        loginPage.confirmLogin();
+    }
+
+    @Epic("Login")
+    @Feature("Positive login")
+    @Description("Login as standard_user with invalid password")
+    @AllureId("2")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(description = "Login as standard_user with valid password")
+    public void userCannotLoginWithInvalidPassword() {
+        negativeTestMethod("standard_user");
+
+    }
 }
