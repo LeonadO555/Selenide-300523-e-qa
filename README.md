@@ -9,8 +9,9 @@
 * `brew install allure` for [Mac](https://brew.sh/)
     * Make sure Homebrew is installed.
     * In a `terminal`, run this command:
-    * > `brew install allure`
-    * > `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+  > `brew install allure`
+
+  > `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
 
 * `scoop install allure` for [Windows](https://scoop.sh/)
@@ -20,9 +21,11 @@
     - Open a PowerShell terminal (version 5.1 or later) and run:
     - In a `terminal`, run this command:
 
-    * > `scoop install allure`
-    * > `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
-    * > `Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression`
+  > `scoop install allure`
+
+  > `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+
+  > `Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression`
 
 
 * install dependencies:
@@ -44,21 +47,11 @@
 
 - Run tests using task `./gradlew clean nameOfTask` (task name can be found in `gradlew build` file)
 
-### Config file
-
-- Config file is located in `src/main/resources/config.properties`
-- Need to add project url
-- selenoid.state - false = `local run`, `true = remote run`
-- selenoid.url - `url to selenoid`
-
-### Reports
+### Allure reports
 
 - After running tests, you can find reports in `build/reports/allure-report` folder
-- To open report , run `allure serve build/allure-results`
 
-### Screenshots
+- for `Allurereport` in the terminal enter the command :
 
-- Screenshots are saved in `reference` folder
-- Screenshots are taken when test fails
-- To do screenshot is reference need to change screenshot name, remove `tmp_` from screenshot name
-- Screenshots are attached to allure report 
+> allure serve build/allure-results
+
