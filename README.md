@@ -53,5 +53,5 @@
 
 - for `Allurereport` in the terminal enter the command :
 
-> allure serve build/allure-results
+> `allure serve build/allure-results`
 
