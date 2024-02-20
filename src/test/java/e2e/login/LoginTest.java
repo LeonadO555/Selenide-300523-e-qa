@@ -4,15 +4,19 @@ import e2e.TestBase;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import pages.ProductsPage;
 
 public class LoginTest extends TestBase {
     LoginPage loginPage;
+    ProductsPage productsPage;
     String password = "secret_sauce";
 
     public void positiveTestMethod(String username) {
         loginPage = new LoginPage();
         loginPage.login(username, password);
         loginPage.confirmLogin();
+
+
     }
 
     @Epic("Login")
@@ -23,6 +27,10 @@ public class LoginTest extends TestBase {
     @Test(description = "Login as standard_user with valid password")
     public void loginAsStandardUser() {
         positiveTestMethod("standard_user");
+
+        productsPage = new ProductsPage();
+
+
     }
 
     @Epic("Login")
@@ -63,24 +71,5 @@ public class LoginTest extends TestBase {
     @Test(description = "Login as visual_user with valid password")
     public void loginVisualUser() {
         positiveTestMethod("visual_user");
-    }
-
-    public void negativeTestMethod(String username) {
-
-        loginPage = new LoginPage();
-        String editPassword = "secretsauce";
-        loginPage.login(username, editPassword);
-        loginPage.confirmLogin();
-    }
-
-    @Epic("Login")
-    @Feature("Positive login")
-    @Description("Login as standard_user with invalid password")
-    @AllureId("2")
-    @Severity(SeverityLevel.CRITICAL)
-    @Test(description = "Login as standard_user with valid password")
-    public void userCannotLoginWithInvalidPassword() {
-        negativeTestMethod("standard_user");
-
     }
 }

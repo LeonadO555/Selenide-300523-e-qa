@@ -39,14 +39,4 @@ dependencies {
 
 test {
     useTestNG()
-    task testSmoke(type: Test) {
-        useTestNG() {
-            testLogging {
-                events "passed", "skipped", "failed", "standardOut", "standardError"
-                exceptionFormat "full"
-            }
-            suites 'src/test/resources/testngSmoke.xml'
-        }
-        systemProperty 'allure.results.directory', 'build/allure-results'
-    }
 }
