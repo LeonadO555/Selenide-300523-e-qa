@@ -22,9 +22,8 @@ public class DatePickerTest {
 
         LocalDate date = LocalDate.of(2023, 2, 25);
         datePickerCalendar = new DatePickerCalendar($x("//*[@id='datePickerMonthYearInput']"));
-        datePickerCalendar.setData(date);
+        datePickerCalendar.setDate(date);
+
         Selenide.closeWebDriver();
-
-
     }
 }
