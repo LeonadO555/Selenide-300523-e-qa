@@ -41,11 +41,13 @@ public class DatePickerCalendar {
                 leftArrow.click();
             }
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(" MMMM dd ");
         String formattedDate = date.format(formatter);
+        //SelenideElement dayCell = $x("//*[contains(@aria-label, '" + formattedDate + "')]");
         SelenideElement dayCell = $x("//*[contains(@aria-label, '" + formattedDate + "')]");
         currentDate.shouldHave(exactText(date.getMonth().name() + " " + date.getYear()));
         dayCell.click();
         body.shouldHave(Condition.hidden);
+
     }
 }
