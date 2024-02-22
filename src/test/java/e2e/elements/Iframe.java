@@ -14,7 +14,7 @@ public class Iframe {
 
     public void scrollBottom() {
         JavascriptExecutor js = (JavascriptExecutor) webdriver().driver().getWebDriver();
-        js.executeScript("window.scrollBy(0,500)", "");
+        js.executeScript("window.scrollBy(0,900)", "");
     }
     //каждый фрэйм как вложенная страница!
     public  String getSampleHeadingBig(){
