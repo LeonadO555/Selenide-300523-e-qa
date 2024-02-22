@@ -3,6 +3,7 @@ package e2e.datepicker;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import e2e.elements.DatePickerCalendar;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
@@ -17,6 +18,7 @@ public class DatePickerTest {
 
     @Test
     public void datePickerCalendar() {
+        WebDriverManager.chromedriver().setup();
         Configuration.browserCapabilities = new ChromeOptions().addArguments("--remote-allow-origins=*");
         open("https://demoqa.com/date-picker");
 
