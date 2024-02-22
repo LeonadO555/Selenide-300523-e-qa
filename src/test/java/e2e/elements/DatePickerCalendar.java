@@ -6,6 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$x;
@@ -42,7 +43,7 @@ public class DatePickerCalendar {
                 leftArrow.click();
             }
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd", Locale.ENGLISH);
         String formattedDate = date.format(formatter);
 //        String dateWithoutSuffix = formattedDate.replaceAll("(\\d+)(st|nd|rd|th)", "$1");
         SelenideElement dayCell = $x("//*[contains(@aria-label, '" + formattedDate + "')]");
