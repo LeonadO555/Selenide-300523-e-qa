@@ -11,13 +11,13 @@ import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class DatePickerCalendar {
-    private SelenideElement input;
-    private SelenideElement body = $x("//*[@class='react-datepicker']");
-    private SelenideElement currentDate = $x("//*[contains(@class,'react-datepicker__current-month')]");
-    private SelenideElement selectMonth = $x("//*[@class='react-datepicker__month-select']");
-    private SelenideElement selectYear = $x("//*[@class='react-datepicker__year-select']");
-    private SelenideElement leftArrow = $x("//*[@aria-label='Previous Month']");
-    private SelenideElement rightArrow = $x("//*[@aria-label='Next Month']");
+    private final SelenideElement input;
+    private final SelenideElement body = $x("//*[@class='react-datepicker']");
+    private final SelenideElement currentDate = $x("//*[contains(@class,'react-datepicker__current-month')]");
+    private final SelenideElement selectMonth = $x("//*[@class='react-datepicker__month-select']");
+    private final SelenideElement selectYear = $x("//*[@class='react-datepicker__year-select']");
+    private final SelenideElement leftArrow = $x("//*[@aria-label='Previous Month']");
+    private final SelenideElement rightArrow = $x("//*[@aria-label='Next Month']");
 
     public DatePickerCalendar (SelenideElement input){
         this.input = input;
