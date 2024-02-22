@@ -24,6 +24,7 @@ allure {
 }
 
 dependencies {
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.7.0'
     implementation group: 'com.codeborne', name: 'selenide-testng', version: '7.1.0'
     testImplementation('com.codeborne:selenide-testng:6.11.0')
     testImplementation("io.qameta.allure:allure-selenide:${allureVersion}")
