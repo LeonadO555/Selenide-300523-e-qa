@@ -20,7 +20,7 @@ public class DatePickerTest {
         Configuration.browserCapabilities = new ChromeOptions().addArguments("--remote-allow-origins=*");
         open("https://demoqa.com/date-picker");
 
-        LocalDate date = LocalDate.of(2023, 6, 25);
+        LocalDate date = LocalDate.of(2023, 2, 25);
         datePickerCalendar = new DatePickerCalendar($x("//*[@id='datePickerMonthYearInput']"));
         datePickerCalendar.setDate(date);
 
