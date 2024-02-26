@@ -2,15 +2,19 @@ package e2e.elements;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
-import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.Selenide.*;
 
 public class Iframe {
 
     SelenideElement firstWrapper = $x("//*[@id='frame1Wrapper']");
-    SelenideElement secondWrapper = $x("//*[@id='frame2Wrapper']");
+
+    private void scrollBottom() {
+        JavascriptExecutor js = (JavascriptExecutor) webdriver().driver().getWebDriver();
+        js.executeScript("window.scrollBy(0,900)", "");
+    }
 
     public String getSampleHeadingBig() {
         firstWrapper.scrollIntoView(true);
@@ -19,7 +23,7 @@ public class Iframe {
     }
 
     public String getSampleHeadingSmall() {
-        secondWrapper.scrollIntoView(true);
+        scrollBottom();
         WebDriver smallIframe = switchTo().frame("frame2");
         return smallIframe.findElement(By.xpath("//*[@id='sampleHeading']")).getText();
     }

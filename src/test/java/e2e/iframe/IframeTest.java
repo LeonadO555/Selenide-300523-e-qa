@@ -9,13 +9,19 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static org.testng.Assert.assertEquals;
 
+
 public class IframeTest {
 
     Iframe iframe;
 
     @Test
     public void iframeTest() {
-        Configuration.browserCapabilities = new ChromeOptions().addArguments("--remote-allow-origins=*");
+        Configuration.browser = "chrome";
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-notification");
+        options.addArguments("--disable-notification");
+        Configuration.browserCapabilities = new ChromeOptions().addArguments("--remote-allow-origins=*").addArguments("--disable-notification");
         open("https://demoqa.com/frames");
         String expectedHeadingText = "This is sample page";
 
