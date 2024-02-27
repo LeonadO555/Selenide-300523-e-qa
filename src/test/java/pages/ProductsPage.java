@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class ProductsPage {
+public class ProductsPage extends BasePage {
 
 
     ElementsCollection inventoryItem = $$("[@class='inventory_item']");
