@@ -9,9 +9,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class ProductsPage {
-    ElementsCollection inventoryItem = $$("[class='inventory_item']");
-    ElementsCollection inventoryItemName = $$("[class='inventory_item_name ']");
-    ElementsCollection inventoryItemPrice = $$("[class='inventory_item_price']");
+    ElementsCollection inventoryItems = $$("[class='inventory_item']");
+    ElementsCollection inventoryItemNames = $$("[class='inventory_item_name ']");
+    ElementsCollection inventoryItemPrices = $$("[class='inventory_item_price']");
     SelenideElement shoppingCartLink = $("[class='shopping_cart_link']");
 
 
@@ -28,20 +28,20 @@ public class ProductsPage {
     }
 
     public void waitForVisibilityAllItems() {
-        int numberOfItem = inventoryItem.size();
+        int numberOfItem = inventoryItems.size();
         for (int i = 0; i < numberOfItem; i++) {
-            inventoryItem.get(i).shouldBe(visible);
+            inventoryItems.get(i).shouldBe(visible);
         }
     }
 
     public String[] getAllItemName() {
         waitForVisibilityAllItems();
-        return inventoryItemName.texts().toArray(new String[0]);
+        return inventoryItemNames.texts().toArray(new String[0]);
     }
 
     public String[] getAllItemPrice() {
         waitForVisibilityAllItems();
-        return inventoryItemPrice.texts().toArray(new String[0]);
+        return inventoryItemPrices.texts().toArray(new String[0]);
     }
 
     public void clickAddToCart(String[] productNames) {
