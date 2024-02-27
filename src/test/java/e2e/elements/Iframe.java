@@ -13,7 +13,7 @@ public class Iframe {
 
     private void scrollBottom() {
         JavascriptExecutor js = (JavascriptExecutor) webdriver().driver().getWebDriver();
-        js.executeScript("window.scrollBy(0,900)", "");
+        js.executeScript("window.scrollBy(0,1000)", "");
     }
 
     public String getSampleHeadingBig() {
