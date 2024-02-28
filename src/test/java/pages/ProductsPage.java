@@ -12,6 +12,7 @@ public class ProductsPage {
     ElementsCollection inventoryItem = $$("[class='inventory_item']");
     ElementsCollection inventoryItemName = $$("[class='inventory_item_name ']");
     ElementsCollection inventoryItemPrice = $$("[class='inventory_item_price']");
+    ElementsCollection removeButton = $$("[@class='btn btn_secondary btn_small btn_inventory']");
 
     SelenideElement shoppingCartLink = $("[class='shopping_cart_link']");
 
@@ -56,5 +57,10 @@ public class ProductsPage {
         }
     }
 
-
+    public String[] getRemoveButtonIsVisible() {
+        return removeButton.texts().toArray(new String[0]);
+    }
 }
+
+
+

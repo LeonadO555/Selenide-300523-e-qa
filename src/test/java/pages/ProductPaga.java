@@ -11,14 +11,15 @@ public class ProductPaga {
     SelenideElement inventoryItemDescriptionOnProductPage = $("[class='inventory_details_desc large_size']");
     SelenideElement inventoryItemPrice = $("[class='inventory_details_price']");
     SelenideElement shoppingCartLink = $("[class='shopping_cart_link']");
+    SelenideElement goToProductPage = $("[id='back-to-products']");
 
     public void clickAddToCartOnProductPage(String productName) {
         SelenideElement addCartButton = $("[data-test='add-to-cart-" + productName.replace(" ", "-").toLowerCase() + "']");
         addCartButton.shouldBe(visible, enabled).shouldHave(text("Add to cart")).click();
     }
 
-    public void clickRemoveFromCartOnProductPage(String productName) {
-        SelenideElement removeButton = $("[data-test='remove-" + productName.replace(" ", "-").toLowerCase() + "']");
+    public void clickRemoveFromCartOnProductPage() {
+        SelenideElement removeButton = $("[class='btn btn_secondary btn_small btn_inventory']");
         removeButton.shouldBe(visible, enabled).shouldHave(text("Remove")).click();
 
     }
@@ -29,12 +30,20 @@ public class ProductPaga {
     }
 
     public String getItemName() {
-        waitForVisibility();
         return inventoryItemNameOnProductPage.text();
     }
 
     public void waitForVisibility() {
         inventoryItemContainer.shouldBe(visible);
+    }
+
+    public void clickOnShoppingCartLink() {
+        waitForVisibility();
+        shoppingCartLink.shouldBe(visible).click();
+    }
+
+    public void clickOnGoBackToProductButton() {
+        goToProductPage.shouldBe(visible).click();
     }
 
 
