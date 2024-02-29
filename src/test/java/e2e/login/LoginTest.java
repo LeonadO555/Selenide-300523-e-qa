@@ -1,12 +1,15 @@
 package e2e.login;
 
 import e2e.TestBase;
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
 public class LoginTest extends TestBase {
     LoginPage loginPage;
+
     String password = "secret_sauce";
 
     public void positiveTestMethod(String username) {
@@ -16,52 +19,43 @@ public class LoginTest extends TestBase {
     }
 
     @Epic("Login")
-    @Feature("Positive login")
+    @Feature("Positive Login")
     @Description("Login as standard_user with valid password")
-    @AllureId("2")
-    @Severity(SeverityLevel.BLOCKER)
     @Test(description = "Login as standard_user with valid password")
     public void loginAsStandardUser() {
         positiveTestMethod("standard_user");
     }
 
     @Epic("Login")
-    @Feature("Positive login")
+    @Feature("Positive Login")
     @Description("Login as problem_user with valid password")
-    @AllureId("1")
-    @Severity(SeverityLevel.BLOCKER)
     @Test(description = "Login as problem_user with valid password")
-    public void loginAsProblemUser() {
+    public void loginAsProblem_user() {
         positiveTestMethod("problem_user");
     }
 
     @Epic("Login")
-    @Feature("Positive login")
+    @Feature("Positive Login")
     @Description("Login as performance_glitch_user with valid password")
-    @AllureId("4")
-    @Severity(SeverityLevel.BLOCKER)
     @Test(description = "Login as performance_glitch_user with valid password")
-    public void loginPerformanceGlitchUser() {
+    public void loginAsPerformance_glitch_user() {
         positiveTestMethod("performance_glitch_user");
     }
 
     @Epic("Login")
-    @Feature("Positive login")
+    @Feature("Positive Login")
     @Description("Login as error_user with valid password")
-    @AllureId("3")
-    @Severity(SeverityLevel.BLOCKER)
     @Test(description = "Login as error_user with valid password")
-    public void loginErrorUser() {
+    public void loginAsError_user() {
         positiveTestMethod("error_user");
     }
 
     @Epic("Login")
-    @Feature("Positive login")
+    @Feature("Positive Login")
     @Description("Login as visual_user with valid password")
-    @AllureId("5")
-    @Severity(SeverityLevel.BLOCKER)
     @Test(description = "Login as visual_user with valid password")
-    public void loginVisualUser() {
+    public void loginAsVisual_user() {
         positiveTestMethod("visual_user");
     }
+
 }
