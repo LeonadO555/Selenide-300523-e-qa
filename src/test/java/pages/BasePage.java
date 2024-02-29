@@ -18,7 +18,6 @@ public class BasePage {
         this.header = new Header();
         this.sideBar = new SideBar();
     }
-
 }
 
 class Header {
@@ -46,14 +45,11 @@ class Header {
         shoppingCartLink.shouldBe(visible, enabled)
                 .click();
     }
-
 }
 
 class SideBar {
-
     public void goToSideBarOption(SideBarInfo tab) {
         SelenideElement sideBar = $x("//*[@id='" + tab.value + "_sidebar_link']");
         sideBar.shouldBe(visible).click();
     }
-
 }

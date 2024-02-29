@@ -31,7 +31,7 @@ public class OverviewPage extends ProductsPage {
                 .click();
     }
 
-    public LinkedHashMap<String, String[]> getAllIInfoPage(OverviewPage page) {
+    public LinkedHashMap<String, String[]> getAllIInfoPage() {
         String[] actualProductsName = overviewInventoryItemName
                 .texts()
                 .toArray(new String[0]);
@@ -45,8 +45,7 @@ public class OverviewPage extends ProductsPage {
         itemInfoObjects.put("productsPrice", actualProductsPrice);
         itemInfoObjects.put("itemTotalPrice", new String[]{actualTotalProductsPrice});
         return itemInfoObjects;
-//        {“productsName:”: [ bla,bla],
-//            “productPrice”: [la,la]}
+
     }
 
     public void checkPaymentInfo() {
@@ -56,5 +55,4 @@ public class OverviewPage extends ProductsPage {
     public void shippingInfo() {
         shippingInfo.shouldBe(visible);
     }
-
 }
