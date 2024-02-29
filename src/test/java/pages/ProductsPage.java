@@ -11,10 +11,10 @@ import static com.codeborne.selenide.Selenide.$$;
 public class ProductsPage extends BasePage {
 
 
-    ElementsCollection inventoryItem = $$("[@class='inventory_item']");
+    ElementsCollection inventoryItem = $$("[class='inventory_item']");
     ElementsCollection inventoryItemName = $$("[class='inventory_item_name ']");
     ElementsCollection inventoryItemPrice = $$("[class='inventory_item_price']");
-    SelenideElement shoppingCartLink = $("[class=shopping_cart_link']");
+    SelenideElement shoppingCartLink = $("[class='shopping_cart_link']");
 
 
     public void openCartPage() {
@@ -22,11 +22,9 @@ public class ProductsPage extends BasePage {
                 .click();
     }
 
-    public void openProductPage(String[] productNames) {
-        for (String productName : productNames) {
-            $(new ByText(productName)).shouldHave(text(productName))
-                    .shouldBe(visible).click();
-        }
+    public void openProductPage(String productName) {
+        $(new ByText(productName)).shouldHave(text(productName))
+                .shouldBe(visible).click();
     }
 
     public void waitForVisibilityAllItems() {
@@ -55,11 +53,12 @@ public class ProductsPage extends BasePage {
         }
     }
 
-    public void clickRemoteToCart(String[] productNames) {
+    public void clickRemoveToCart(String[] productNames) {
         for (String productName : productNames) {
-            SelenideElement remoteCartButton = $("[data-test='add-to-cart-" + productName.replace(" ", "-").toLowerCase() + "']");
+            SelenideElement remoteCartButton = $("[data-test='remove-" + productName.replace(" ", "-").toLowerCase() + "']");
+
             remoteCartButton.shouldBe(visible, enabled)
-                    .shouldHave(text("Remote"))
+                    .shouldHave(text("Remove"))
                     .click();
         }
     }
