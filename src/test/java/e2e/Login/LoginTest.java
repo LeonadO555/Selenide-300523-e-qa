@@ -1,4 +1,4 @@
-package e2e.Login;
+package e2e.login;
 
 import e2e.TestBase;
 import io.qameta.allure.Description;
@@ -9,7 +9,6 @@ import pages.LoginPage;
 
 public class LoginTest extends TestBase {
     LoginPage loginPage;
-
     String password = "secret_sauce";
 
     public void positiveTestMethod(String username) {

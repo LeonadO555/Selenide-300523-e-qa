@@ -9,7 +9,6 @@ import pages.LoginPage;
 
 public class LoginTest extends TestBase {
     LoginPage loginPage;
-
     String password = "secret_sauce";
 
     public void positiveTestMethod(String username) {
