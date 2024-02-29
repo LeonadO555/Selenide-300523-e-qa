@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class ProductsPage {
+public class ProductsPage extends BasePage {
     ElementsCollection inventoryItem = $$("//*[class='inventory_item']");
     ElementsCollection inventoryItemName = $$("[class='inventory_item_name']");
     ElementsCollection inventoryItemPrice = $$("[class='inventory_item_price']");
@@ -16,6 +16,7 @@ public class ProductsPage {
 
 
     public void opencartPage() {
+
         shoppingCartLink.shouldBe(visible, enabled)
                 .click();
     }
