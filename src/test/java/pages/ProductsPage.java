@@ -8,11 +8,14 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class ProductsPage {
-    ElementsCollection inventoryItem = $$("[class='inventory_item']");
+public class ProductsPage extends BasePage {
+
+
+    ElementsCollection inventoryItem = $$("[@class='inventory_item']");
     ElementsCollection inventoryItemName = $$("[class='inventory_item_name ']");
     ElementsCollection inventoryItemPrice = $$("[class='inventory_item_price']");
-    SelenideElement shoppingCartLink = $("[class='shopping_cart_link']");
+    SelenideElement shoppingCartLink = $("[class=shopping_cart_link']");
+
 
     public void openCartPage() {
         shoppingCartLink.shouldBe(visible, enabled)
@@ -52,11 +55,11 @@ public class ProductsPage {
         }
     }
 
-    public void clickRemoveFromCart(String[] productNames) {
+    public void clickRemoteToCart(String[] productNames) {
         for (String productName : productNames) {
-            SelenideElement removeButton = $("[data-test='remove-" + productName.replace(" ", "-").toLowerCase() + "']");
-            removeButton.shouldBe(visible, enabled)
-                    .shouldHave(text("Remove"))
+            SelenideElement remoteCartButton = $("[data-test='add-to-cart-" + productName.replace(" ", "-").toLowerCase() + "']");
+            remoteCartButton.shouldBe(visible, enabled)
+                    .shouldHave(text("Remote"))
                     .click();
         }
     }
