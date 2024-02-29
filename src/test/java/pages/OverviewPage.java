@@ -31,7 +31,7 @@ public class OverviewPage extends ProductsPage {
                 .click();
     }
 
-    public LinkedHashMap<String, String[]> getAllIInfoPage(OverviewPage page) {
+    public LinkedHashMap<String, String[]> getAllIInfoPage() {
         String[] actualProductsName = overviewInventoryItemName
                 .texts()
                 .toArray(new String[0]);
