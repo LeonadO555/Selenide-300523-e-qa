@@ -39,12 +39,11 @@ public class OverviewPage extends ProductsPage {
                 .texts()
                 .toArray(new String[0]);
         String actualTotalProductsPrice = itemTotal
-                .text()
-                .toArray(new String[0]);
+                .text();
         LinkedHashMap<String, String[]> itemInfoObjects = new LinkedHashMap<>();
         itemInfoObjects.put("productsName", actualProductsName);
         itemInfoObjects.put("productsPrice", actualProductsPrice);
-        itemInfoObjects.put("itemTotalPrice", actualTotalProductsPrice);
+        itemInfoObjects.put("itemTotalPrice", new String[]{actualTotalProductsPrice});
         return itemInfoObjects;
 //        {“productsName:”: [ bla,bla],
 //            “productPrice”: [la,la]}
@@ -59,3 +58,5 @@ public class OverviewPage extends ProductsPage {
     }
 
 }
+
+
