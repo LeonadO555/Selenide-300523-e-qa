@@ -47,6 +47,12 @@ public class OverviewPage extends ProductsPage {
         return itemInfoObjects;
 //        {“productsName:”: [ bla,bla],
 //            “productPrice”: [la,la]}
+//
+//        OverviewPage overviewPage = new OverviewPage();
+//        LinkedHashMap<String, String[]> infoObject = overviewPage.getAllIInfoPage();
+//        String[] productsName = infoObject.get("productsName");
+//        String[] productList = new String[]{productsName[0], productsName[1], productsName[2]};
+//        String[] productsPrice = infoObject.get("productsPrice")
     }
 
     public void checkPaymentInfo() {
