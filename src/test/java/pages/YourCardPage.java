@@ -21,4 +21,37 @@ public class YourCardPage {
         }
     }
 
+    public String[] getAllItemName() {
+        waitFroVisibilityAllItems();
+        return inventoryItemNameOnYourCardPage.texts().toArray(new String[0]);
+    }
+
+    public String[] getAllItemPrice() {
+        waitFroVisibilityAllItems();
+        return inventoryItemPrice.texts().toArray(new String[0]);
+    }
+
+    public void waitFroVisibilityAllItems() {
+        int numberOfItem = inventoryItemOnYourCardPage.size();
+        for (int i = 0; i < numberOfItem; i++) {
+            inventoryItemOnYourCardPage.get(i).shouldBe(visible);
+        }
+    }
+
+    public void waitFroInVisibilityAllItems() {
+        int numberOfItem = inventoryItemOnYourCardPage.size();
+        for (int i = 0; i < numberOfItem; i++) {
+            inventoryItemOnYourCardPage.get(i).shouldBe(hidden);
+        }
+    }
+
+    public void clickOnCheckoutButton() {
+        checkoutButton.shouldBe(visible);
+        checkoutButton.click();
+    }
+
+    public void clickOnContinueShoppingButton() {
+        continueShoppingButton.shouldBe(visible);
+        checkoutButton.click();
+    }
 }
