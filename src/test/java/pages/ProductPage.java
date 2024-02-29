@@ -18,10 +18,11 @@ public class ProductPage {
         addCartButton.shouldBe(visible, enabled).shouldHave(text("Add to cart")).click();
     }
 
-    public void clickRemoveFromCartOnProductPage() {
-        SelenideElement removeButton = $("[class='btn btn_secondary btn_small btn_inventory']");
-        removeButton.shouldBe(visible, enabled).shouldHave(text("Remove")).click();
-
+    public void clickRemoveFromCart(String productName) {
+        SelenideElement removeButton = $("[data-test='remove-" + productName.replace(" ", "-").toLowerCase() + "']");
+        removeButton.shouldBe(visible, enabled)
+                .shouldHave(text("Remove"))
+                .click();
     }
 
     public String getItemPrice() {
@@ -37,14 +38,8 @@ public class ProductPage {
         inventoryItemContainer.shouldBe(visible);
     }
 
-    public void clickOnShoppingCartLink() {
-        waitForVisibility();
-        shoppingCartLink.shouldBe(visible).click();
-    }
 
     public void clickOnGoBackToProductButton() {
         goToProductPage.shouldBe(visible).click();
     }
-
-
 }
