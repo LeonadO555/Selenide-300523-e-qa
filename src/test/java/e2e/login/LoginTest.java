@@ -6,6 +6,9 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import pages.OverviewPage;
+
+import java.util.LinkedHashMap;
 
 public class LoginTest extends TestBase {
     LoginPage loginPage;
@@ -56,5 +59,12 @@ public class LoginTest extends TestBase {
     public void loginAsVisual_user() {
         positiveTestMethod("visual_user");
     }
+
+
+    OverviewPage overviewPage = new OverviewPage();
+    LinkedHashMap<String, String[]> infoObject = overviewPage.getAllIInfoPage();
+    String[] productsName = infoObject.get("productsName");
+    String[] productList = new String[]{productsName[0], productsName[1], productsName[2]};
+    String[] productsPrice = infoObject.get("productsPrice");
 
 }
