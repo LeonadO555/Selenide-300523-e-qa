@@ -57,9 +57,6 @@ public class ProductsPage {
         }
     }
 
-    public String[] getRemoveButtonIsVisible() {
-        return removeButton.texts().toArray(new String[0]);
-    }
 }
 
 
