@@ -24,6 +24,5 @@ public class YourInformationPage extends ProductsPage {
                 .setValue(zipPostalCode)
                 .shouldHave(value(zipPostalCode));
         continueButton.click();
-
     }
 }

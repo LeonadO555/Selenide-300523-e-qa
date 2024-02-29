@@ -15,8 +15,6 @@ public class LoginTest extends TestBase {
         loginPage = new LoginPage();
         loginPage.login(username, password);
         loginPage.confirmLogin();
-
-
     }
 
     @Epic("Login")

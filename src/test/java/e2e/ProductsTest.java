@@ -4,14 +4,15 @@ import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ProductsPage;
-import pages.YourInformationPage;
+import pages.YourCartPage;
 
-public class ProductsTest extends ProductsPage {
+public class ProductsTest extends TestBase {
 
     LoginPage loginPage;
     ProductsPage productsPage;
-    YourInformationPage checkoutYourInformation;
+    YourCartPage yourCartPage;
     String password = "secret_sauce";
+    String productName = "Product name";
 
     public void positiveTestMethod(String username) {
         loginPage = new LoginPage();
@@ -22,22 +23,11 @@ public class ProductsTest extends ProductsPage {
     @Epic("Login")
     @Feature("Positive login")
     @Description("Login as standard_user with valid password")
-    @AllureId("")
+    @AllureId("2")
     @Severity(SeverityLevel.BLOCKER)
     @Test(description = "Login as standard_user with valid password")
     public void loginAsStandardUser() {
         positiveTestMethod("standard_user");
-
-        String firstName = "Georgiy";
-        String lastName = "Manolov";
-        String zipPostalCode = "12345";
-
-        productsPage = new ProductsPage();
-        productsPage.clickAddToCart();
-
-        checkoutYourInformation = new YourInformationPage();
-        checkoutYourInformation.yourInformation(firstName, lastName, zipPostalCode);
-
 
     }
 }
