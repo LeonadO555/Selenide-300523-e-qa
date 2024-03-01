@@ -23,6 +23,13 @@ public class YourInformationPage extends ProductsPage {
         zipPostalCodeInput.shouldBe(visible, enabled, editable)
                 .setValue(zipPostalCode)
                 .shouldHave(value(zipPostalCode));
-        continueButton.click();
+
+    }
+
+
+    public void clickContinueButton() {
+        continueButton.shouldBe(visible, enabled)
+                .shouldHave()
+                .click();
     }
 }
