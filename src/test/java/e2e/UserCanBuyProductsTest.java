@@ -2,6 +2,7 @@ package e2e;
 
 
 import e2e.enums.SideBarInfo;
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import pages.*;
 
@@ -23,9 +24,13 @@ public class UserCanBuyProductsTest extends TestBase {
     Header header;
     SideBar sideBar;
 
-
+    @Epic(value = "user can buy products ")
+    @Feature(value = "user can buy product")
+    @Description(value = " user can buy products ")
+    @Severity(SeverityLevel.CRITICAL)
+    @AllureId("1")
     @Test(description = "User can buy products")
-    public void userCanBuyProducts() throws NoSuchMethodException {
+    public void userCanBuyProducts() {
         String username = "visual_user";
         String password = "secret_sauce";
         String firstName = "Georgiy";
@@ -90,10 +95,13 @@ public class UserCanBuyProductsTest extends TestBase {
         assertNotNull(itemInfoObject.get("logo"));
         assertNotNull(itemInfoObject.get("Thank you for your order!"));
         assertNotNull(itemInfoObject.get("Your order has been dispatched, and will arrive just as fast as the pony can get there!"));
-
         checkoutPage.clickBackHomeButton();
 
         productsPage = new ProductsPage();
+
+        productsPage = new ProductsPage();
+        productsPage.openCartPage();
+        yourCartPage.clickOnContinueShoppingButton();
 
         header = new Header();
         header.openBurgerMenu();
