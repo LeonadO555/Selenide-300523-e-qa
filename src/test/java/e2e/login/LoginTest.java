@@ -6,13 +6,12 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import pages.OverviewPage;
 
 import java.util.LinkedHashMap;
 
 public class LoginTest extends TestBase {
     LoginPage loginPage;
-    OverviewPage overviewPage;
+
     String password = "secret_sauce";
 
     public void positiveTestMethod(String username) {
