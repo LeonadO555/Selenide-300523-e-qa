@@ -18,35 +18,34 @@ public class DatePickerCalendar {
     private SelenideElement selectMonth = $x("//*[@class='react-datepicker__month-select']");
     private SelenideElement selectYear = $x("//*[@class='react-datepicker__year-select']");
     private SelenideElement leftArrow = $x("//*[@aria-label='Previous Month']");
-    private SelenideElement rigtArrow = $x("//*[@aria-label='Next Month']");
+    private SelenideElement rightArrow = $x("//*[@aria-label='Next Month']");
 
 
     public DatePickerCalendar(SelenideElement input) {
         this.input = input;
     }
 
-
     public void setDate(LocalDate date) {
         input.shouldBe(Condition.visible, Condition.enabled).click();
 
         body.shouldBe(Condition.visible);
         currentDate.shouldBe(Condition.visible);
-        String[] currentMonthAndYear = currentDate.getText().split(" ");
-        int currentMonth = Month.valueOf(currentMonthAndYear[0].toUpperCase()).getValue();
-        int currentYear = Integer.parseInt(currentMonthAndYear[1]);
+
+        String[] currentMothAndYear = currentDate.getText().split(" ");
+        int currentMonth = Month.valueOf(currentMothAndYear[0].toUpperCase()).getValue();
+        int currentYear = Integer.parseInt(currentMothAndYear[1]);
         int monthDiff = (date.getYear() - currentYear) * 12 + (date.getMonthValue() - currentMonth);
         for (int i = 0; i < Math.abs(monthDiff); i++) {
             if (monthDiff > 0) {
-                rigtArrow.click();
+                rightArrow.click();
             } else {
                 leftArrow.click();
             }
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd", Locale.ENGLISH);
         String formattedDate = date.format(formatter);
-        //String dateWithoutSuffix = formattedDate.replaceAll("(\\d+)(st|nd|rd|th)", "$1");
         SelenideElement dayCell = $x("//*[contains(@aria-label, '" + formattedDate + "')]");
-        currentDate.shouldHave(exactText(date.getMonth() + " " + date.getYear()));
+        currentDate.shouldHave(exactText(date.getMonth().name() + " " + date.getYear()));
         dayCell.click();
         body.shouldHave(Condition.hidden);
     }

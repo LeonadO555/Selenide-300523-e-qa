@@ -18,11 +18,11 @@ allure {
     autoconfigure = true
     version = "${allureVersion}"
 
-
     useTestNG {
         version = "${allureVersion}"
     }
 }
+
 
 dependencies {
     implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.7.0'

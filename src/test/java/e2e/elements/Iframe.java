@@ -8,12 +8,11 @@ import org.openqa.selenium.WebDriver;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Iframe {
-
     SelenideElement firstWrapper = $x("//*[@id='frame1Wrapper']");
 
     private void scrollBottom() {
         JavascriptExecutor js = (JavascriptExecutor) webdriver().driver().getWebDriver();
-        js.executeScript("window.scrollBy(0,1000)", "");
+        js.executeScript("window.scrollBy(0,500)", "");
     }
 
     public String getSampleHeadingBig() {
