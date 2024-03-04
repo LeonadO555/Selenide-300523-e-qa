@@ -23,9 +23,7 @@ public class YourInformationPage extends ProductsPage {
         zipPostalCodeInput.shouldBe(visible, enabled, editable)
                 .setValue(zipPostalCode)
                 .shouldHave(value(zipPostalCode));
-
     }
-
 
     public void clickContinueButton() {
         continueButton.shouldBe(visible, enabled)

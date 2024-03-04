@@ -13,14 +13,13 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.AssertJUnit.assertNotNull;
 
 public class UserCanBuyProductsTest extends TestBase {
-    LoginPage loginPage;
+    LoginPage loginPage = new LoginPage();
     ProductsPage productsPage;
     ProductPage productPage;
     YourCartPage yourCartPage;
     YourInformationPage yourInformationPage;
     OverviewPage overviewPage;
     CheckoutPage checkoutPage;
-    BasePage basePage;
     Header header;
     SideBar sideBar;
 
@@ -110,11 +109,14 @@ public class UserCanBuyProductsTest extends TestBase {
         header.openBurgerMenu();
 
         sideBar = new SideBar();
+        sideBar.goToSideBarOption(SideBarInfo.ALLITEMS);
+
+        header = new Header();
+        header.openBurgerMenu();
         sideBar.goToSideBarOption(SideBarInfo.LOGOUT);
 
         loginPage = new LoginPage();
         loginPage.login(username, password);
         loginPage.confirmLogin();
-
     }
 }
