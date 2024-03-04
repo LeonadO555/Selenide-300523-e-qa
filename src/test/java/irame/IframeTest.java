@@ -1,34 +1,33 @@
-package e2e.Iframe;
+package irame;
 
 import com.codeborne.selenide.Configuration;
-import e2e.elements.IFrame;
+import e2e.elements.Iframe;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.*;
 import static org.testng.Assert.assertEquals;
-//import static org.testng.AssertJUnit.assertEquals;
 
 public class IframeTest {
 
-    IFrame iframe;
+    Iframe iframe;
 
     @Test
-    public void IframeTest() {
+    public void iframeTest() {
         WebDriverManager.chromedriver().setup();
         Configuration.browserCapabilities = new ChromeOptions().addArguments("--remote-allow-origins=*");
         open("https://demoqa.com/frames");
-        String expectedHeadingText = "This is a sample page";
 
-        iframe = new IFrame();
+        String expectedHeadingTest = "This is a sample page";
+
+        iframe = new Iframe();
         String bigHeadingText = iframe.getSampleHeadingBig();
-        assertEquals(bigHeadingText, expectedHeadingText, bigHeadingText + "Is not equal" + expectedHeadingText);
+        assertEquals(bigHeadingText, expectedHeadingTest, bigHeadingText + "is not equal" + expectedHeadingTest);
         switchTo().defaultContent();
         String smallHeadingText = iframe.getSampleHeadingSmall();
-        assertEquals(smallHeadingText, expectedHeadingText, smallHeadingText + "Is not equal" + expectedHeadingText);
+        assertEquals(smallHeadingText, expectedHeadingTest, smallHeadingText + "is not equal" + expectedHeadingTest);
 
         closeWebDriver();
     }
-
 }

@@ -1,7 +1,5 @@
 package e2e;
 
-//import com.codeborne.selenide.Selenide;
-
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;

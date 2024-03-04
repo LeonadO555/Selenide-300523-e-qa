@@ -6,18 +6,20 @@ import com.codeborne.selenide.SelenideElement;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class DatePickerCalendar {
-    final SelenideElement currentDate = $x("//*[contains(@class,'react-datepicker__current-month')]");
     private SelenideElement input;
     private SelenideElement body = $x("//*[@class='react-datepicker']");
+    private SelenideElement currentDate = $x("//*[contains(@class,'react-datepicker__current-month')]");
     private SelenideElement selectMonth = $x("//*[@class='react-datepicker__month-select']");
-    private SelenideElement selectVar = $x("//*[@class='react-datepicker__year-select']");
+    private SelenideElement selectYear = $x("//*[@class='react-datepicker__year-select']");
     private SelenideElement leftArrow = $x("//*[@aria-label='Previous Month']");
     private SelenideElement rightArrow = $x("//*[@aria-label='Next Month']");
+
 
     public DatePickerCalendar(SelenideElement input) {
         this.input = input;
@@ -40,11 +42,10 @@ public class DatePickerCalendar {
                 leftArrow.click();
             }
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(" MMMM dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd", Locale.ENGLISH);
         String formattedDate = date.format(formatter);
-        //String dateWithoutSuffix = formattedDate.replaceAll("(\\d+)(st|nd|rd|th)", "$1");
         SelenideElement dayCell = $x("//*[contains(@aria-label, '" + formattedDate + "')]");
-        currentDate.shouldHave(exactText(date.getMonth() + " " + date.getYear()));
+        currentDate.shouldHave(exactText(date.getMonth().name() + " " + date.getYear()));
         dayCell.click();
         body.shouldHave(Condition.hidden);
     }

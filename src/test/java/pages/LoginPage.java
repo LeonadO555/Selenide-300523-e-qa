@@ -2,19 +2,19 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import e2e.TestBase;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class LoginPage extends TestBase {
+public class LoginPage extends BasePage {
     private SelenideElement loginInput = $x("//*[@id='user-name']");
     private SelenideElement passwordInput = $x("//*[@id='password']");
     private SelenideElement loginButton = $x("//*[@id='login-button']");
-    private SelenideElement loginCredential = $x("//*[@id='login_credentials']");
+    private SelenideElement loginCredentials = $("[id='login_credentials']");
     private SelenideElement loginPassword = $x("//*[@class='login_password']");
 
-    @Step("Login as user with data username: {username}, password: {password}")
+    @Step("Login as user with data username: {username} ,password: {password}")
     public void login(String username, String password) {
         loginInput.sendKeys(username);
         passwordInput.sendKeys(password);
@@ -23,7 +23,7 @@ public class LoginPage extends TestBase {
 
     @Step("Confirm login successful")
     public void confirmLogin() {
-        loginCredential.shouldBe(Condition.hidden);
+        loginCredentials.shouldBe(Condition.hidden);
         loginPassword.shouldNotBe(Condition.visible);
     }
 }
