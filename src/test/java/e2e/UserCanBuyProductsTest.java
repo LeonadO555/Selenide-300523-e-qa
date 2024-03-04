@@ -115,8 +115,10 @@ public class UserCanBuyProductsTest extends TestBase {
         header.openBurgerMenu();
         sideBar.goToSideBarOption(SideBarInfo.LOGOUT);
 
+        String username1 = "standard_user";
+        String password1 = "secret_sauce";
         loginPage = new LoginPage();
-        loginPage.login(username, password);
+        loginPage.login(username1, password1);
         loginPage.confirmLogin();
     }
 }

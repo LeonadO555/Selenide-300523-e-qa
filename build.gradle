@@ -41,7 +41,7 @@ dependencies {
 test {
     useTestNG()
 }
-task TestMy(type: Test) {
+task TestSmoke(type: Test) {
     useTestNG() {
         testLogging {
             events "passed", "skipped", "failed", "standardOut", "standardError"
