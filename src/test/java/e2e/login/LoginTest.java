@@ -15,12 +15,6 @@ public class LoginTest extends TestBase {
         loginPage = new LoginPage();
         loginPage.login(username, password);
         loginPage.confirmLogin();
-
-       /* OverviewPage overviewPage = new OverviewPage();
-        LinkedHashMap<String, String[]> infoObject = overviewPage.getAllIInfoPage();
-        String[] productsName = infoObject.get("productsName");
-        String[] productList = new String[]{productsName[0], productsName[1], productsName[2]};
-        String[] productsPrice = infoObject.get("productsPrice");*/
     }
 
     @Epic("Login")
