@@ -56,8 +56,8 @@ public class UserCanBuyProductsTest extends TestBase {
         String[] actualProducts = yourCartPage.getAllItemName();
         assertEquals(actualProducts, addedProducts, Arrays.toString(actualProducts) + " not equals" + Arrays.toString(addedProducts));
 
-        yourInformationPage = new YourInformationPage();
-        assertEquals();
+        // yourInformationPage = new YourInformationPage();
+        // assertEquals();
     }
 }
 
